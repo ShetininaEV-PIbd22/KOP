@@ -33,5 +33,23 @@ namespace WindowsFormsApp
             FormControlDataGridView data = new FormControlDataGridView();
             data.ShowDialog();
         }
+
+        private void buttonFormStore_Click(object sender, EventArgs e)
+        {
+            FormStore store = new FormStore();
+            store.ShowDialog();
+        }
+
+        private void buttonFormWord_Click(object sender, EventArgs e)
+        {
+            FormWord word = new FormWord();
+            word.ShowDialog();
+        }
+
+        private void buttonFormExcel_Click(object sender, EventArgs e)
+        {
+            FormExcel excel = new FormExcel();
+            excel.ShowDialog();
+        }
     }
 }

@@ -31,6 +31,9 @@
             this.buttonControlListBox = new System.Windows.Forms.Button();
             this.buttonControlTextBox = new System.Windows.Forms.Button();
             this.buttonControlDataGridView = new System.Windows.Forms.Button();
+            this.buttonFormStore = new System.Windows.Forms.Button();
+            this.buttonFormWord = new System.Windows.Forms.Button();
+            this.buttonFormExcel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonControlListBox
@@ -63,11 +66,44 @@
             this.buttonControlDataGridView.UseVisualStyleBackColor = true;
             this.buttonControlDataGridView.Click += new System.EventHandler(this.buttonControlDataGridView_Click);
             // 
+            // buttonFormStore
+            // 
+            this.buttonFormStore.Location = new System.Drawing.Point(205, 22);
+            this.buttonFormStore.Name = "buttonFormStore";
+            this.buttonFormStore.Size = new System.Drawing.Size(103, 23);
+            this.buttonFormStore.TabIndex = 3;
+            this.buttonFormStore.Text = "FormStore";
+            this.buttonFormStore.UseVisualStyleBackColor = true;
+            this.buttonFormStore.Click += new System.EventHandler(this.buttonFormStore_Click);
+            // 
+            // buttonFormWord
+            // 
+            this.buttonFormWord.Location = new System.Drawing.Point(205, 66);
+            this.buttonFormWord.Name = "buttonFormWord";
+            this.buttonFormWord.Size = new System.Drawing.Size(103, 23);
+            this.buttonFormWord.TabIndex = 4;
+            this.buttonFormWord.Text = "FormWord";
+            this.buttonFormWord.UseVisualStyleBackColor = true;
+            this.buttonFormWord.Click += new System.EventHandler(this.buttonFormWord_Click);
+            // 
+            // buttonFormExcel
+            // 
+            this.buttonFormExcel.Location = new System.Drawing.Point(205, 112);
+            this.buttonFormExcel.Name = "buttonFormExcel";
+            this.buttonFormExcel.Size = new System.Drawing.Size(103, 23);
+            this.buttonFormExcel.TabIndex = 5;
+            this.buttonFormExcel.Text = "FormExcel";
+            this.buttonFormExcel.UseVisualStyleBackColor = true;
+            this.buttonFormExcel.Click += new System.EventHandler(this.buttonFormExcel_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(179, 182);
+            this.ClientSize = new System.Drawing.Size(334, 188);
+            this.Controls.Add(this.buttonFormExcel);
+            this.Controls.Add(this.buttonFormWord);
+            this.Controls.Add(this.buttonFormStore);
             this.Controls.Add(this.buttonControlDataGridView);
             this.Controls.Add(this.buttonControlListBox);
             this.Controls.Add(this.buttonControlTextBox);
@@ -82,5 +118,8 @@
         private System.Windows.Forms.Button buttonControlListBox;
         private System.Windows.Forms.Button buttonControlTextBox;
         private System.Windows.Forms.Button buttonControlDataGridView;
+        private System.Windows.Forms.Button buttonFormStore;
+        private System.Windows.Forms.Button buttonFormWord;
+        private System.Windows.Forms.Button buttonFormExcel;
     }
 }
