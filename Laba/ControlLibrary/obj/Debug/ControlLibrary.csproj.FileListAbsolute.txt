@@ -1,0 +1,12 @@
+C:\Users\sheti\Desktop\КОП\1\Laba\ControlLibrary\bin\Debug\ControlLibrary.dll
+C:\Users\sheti\Desktop\КОП\1\Laba\ControlLibrary\bin\Debug\ControlLibrary.pdb
+C:\Users\sheti\Desktop\КОП\1\Laba\ControlLibrary\obj\Debug\ControlLibrary.csprojAssemblyReference.cache
+C:\Users\sheti\Desktop\КОП\1\Laba\ControlLibrary\obj\Debug\ControlLibrary.ControlListBox.resources
+C:\Users\sheti\Desktop\КОП\1\Laba\ControlLibrary\obj\Debug\ControlLibrary.csproj.GenerateResource.cache
+C:\Users\sheti\Desktop\КОП\1\Laba\ControlLibrary\obj\Debug\ControlLibrary.csproj.CoreCompileInputs.cache
+C:\Users\sheti\Desktop\КОП\1\Laba\ControlLibrary\obj\Debug\ControlLibrary.dll
+C:\Users\sheti\Desktop\КОП\1\Laba\ControlLibrary\obj\Debug\ControlLibrary.pdb
+C:\Users\sheti\Desktop\КОП\1\Laba\ControlLibrary\obj\Debug\ControlLibrary.ControlTextBox.resources
+C:\Users\sheti\Desktop\КОП\1\Laba\ControlLibrary\obj\Debug\ControlLibrary.ControlDataGridView.resources
+C:\Users\sheti\Desktop\КОП\1\Laba\ControlLibrary\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\sheti\Desktop\КОП\1\Laba\ControlLibrary\obj\Debug\ControlLibrary.csproj.CopyComplete
