@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,8 +38,11 @@ namespace WindowsFormsApp
 
         private void buttonSet_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Filter = "json|*.json";
+            openFileDialog1.ShowDialog();
             string st = "";
-            foreach (var l in componentStore.GetData())
+            Console.WriteLine(openFileDialog1.FileName);
+            foreach (var l in componentStore.GetData<MyClass>(openFileDialog1.FileName))
             {
                 Console.WriteLine(l);
                 st = st + "\n" + l;

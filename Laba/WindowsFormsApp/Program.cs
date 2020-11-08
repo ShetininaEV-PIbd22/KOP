@@ -21,12 +21,12 @@ namespace WindowsFormsApp
             Application.Run(new FormMain());
         }
         
-        public static List<Class> AddData()
+        public static List<MyClass> AddData()
         {
-            List<Class> list = new List<Class>();
+            List<MyClass> list = new List<MyClass>();
             for (int i = 0; i < 10; i++)
             {
-                list.Add(new Class
+                list.Add(new MyClass
                 {
                     id = i,
                     Text = "Объект" + (i + 1),

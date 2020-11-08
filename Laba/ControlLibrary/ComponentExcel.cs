@@ -17,10 +17,10 @@ namespace ControlLibrary
 {
     public partial class ComponentExcel : Component
     {
-        public int[] mas { get; set; }
-        public int index { get; set; }
-        public string title="";
-        public string name { get; set; }
+        public int index { get; set; }//для построения графика по столбцу
+        public string title="";//заголовок графика
+        public string filePath { get; set; }//путь для сохранения
+        
         public ComponentExcel()
         {
             InitializeComponent();
@@ -34,9 +34,12 @@ namespace ControlLibrary
         }
         public void Open<T>(List<T> list, List<string> names, string typeDate) where T : class, new()
         {
+            ChackPath(filePath);
+            ChackIndex(index);
+
             // Создаём экземпляр нашего приложения
             Application excelApp = new Application();
-            excelApp.UserName = name+".xlsx";
+            
             // Создаём экземпляр рабочий книги Excel
             Workbook workBook;
             // Создаём экземпляр листа Excel
@@ -52,12 +55,14 @@ namespace ControlLibrary
             // вызываем метод
             var config = (List<string>)method.Invoke(obj, null);
             int count = 1;//количество столбцов
+            //создание шапки
             foreach (var name in names)
             {
                 workSheet.Cells[1, count] = name;
                 count++;
             }
             int j = 2;// строка
+            //добавление данных
             foreach (var elem in list)
             { 
                 int i = 1;//столбец
@@ -72,19 +77,16 @@ namespace ControlLibrary
             ChartObject chartObj = chartObjs.Add(250, 50, 300, 300);
             
             Chart xlChart = chartObj.Chart;
-            
-            if (title =="")
-            {
-                xlChart.HasTitle = false;
-            }
-            else
+            // Устанавливаем тип диаграммы
+            xlChart.ChartType = XlChartType.xlColumnClustered;
+            //xl3DColumn;
+            if (ChackTitle(title))
             {
                 xlChart.HasTitle = true;
                 xlChart.ChartTitle.Text = title;
             }
-            // Устанавливаем тип диаграммы
-            xlChart.ChartType = XlChartType.xlColumnClustered;
-            //xl3DColumn;
+            else
+                xlChart.HasTitle = false;
 
             //диапазон данных
             Range range = null;
@@ -100,12 +102,37 @@ namespace ControlLibrary
             // Устанавливаем источник данных 
             xlChart.SetSourceData(range);
 
-            //Открываем созданный excel-файл
-            excelApp.Visible = true;
-            excelApp.UserControl = true;
             Console.WriteLine("save");
+           
             excelApp.Application.ActiveWorkbook.Saved = true;
-            excelApp.Application.ActiveWorkbook.SaveAs(@name);//"C:\Users\sheti\Desktop\KOPlaba1.xlsx" name);
+            excelApp.Application.ActiveWorkbook.SaveAs(@filePath);
+            excelApp.Quit();
+        }
+        private void ChackPath(string path)
+        {
+            if (path.Length == 0)
+            {
+                throw (new Exception("Отсутствует путь для сохранения файла!"));
+            }
+        }
+        private void ChackIndex(int index)
+        {
+            Console.WriteLine(index);
+            if (index<0)
+            {
+                throw (new Exception("Не правильный индекс столбца!"));
+            }
+        }
+        private bool ChackTitle(string title)
+        {
+            if (string.IsNullOrEmpty(title))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

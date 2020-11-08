@@ -85,7 +85,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class.cs" />
+    <Compile Include="MyClass.cs" />
     <Compile Include="FormAddStudent.cs">
       <SubType>Form</SubType>
     </Compile>

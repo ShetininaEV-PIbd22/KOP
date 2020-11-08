@@ -14,8 +14,6 @@ namespace ControlLibrary
 {
     public partial class ComponentStore : Component
     {
-        string name;
-        
         public ComponentStore()
         {
             InitializeComponent();
@@ -28,16 +26,18 @@ namespace ControlLibrary
             InitializeComponent();
         }
 
-        public List<object> GetData()
+        public List<T> GetData<T>(string path)
         {
-            List<object> result;
-            string path = name + ".json";
-            string text = "";
+            List<T> result;
+            if (!Check(typeof(T)))
+            {
+                throw (new Exception("Класс не настроен для работы."));
+            }
             using (StreamReader sr = new StreamReader(path))
             {
-                text = sr.ReadToEnd();
+                string text = sr.ReadToEnd();
                 Console.WriteLine(text);
-                result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<object>>(text);
+                result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<T>>(text);
                 Console.WriteLine(result.ToString());
             }
             return result;
@@ -46,8 +46,11 @@ namespace ControlLibrary
         public void SaveData<T>(string path, List<T> list) where T : class, new()
         {
             Type type = typeof(T);
-            //DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(List<T>));
-            name = path + type.Name;
+            if (!Check(type))
+            {
+                throw(new Exception("Класс не настроен для работы."));
+            }
+            string name = path + type.Name;
             using (FileStream fs = new FileStream(string.Format("{0}.json", name), FileMode.Create))//FileMode.OpenOrCreate))
             {
                 var option = new JsonSerializerOptions
@@ -62,8 +65,20 @@ namespace ControlLibrary
                 };
                 Utf8JsonWriter utf = new Utf8JsonWriter(fs, opt);
                 JsonSerializer.Serialize<List<T>>(utf, list, option);
-                //jsonFormatter.WriteObject(fs,list);
             }
+        }
+        private bool Check(Type type)
+        {
+            var attrib = type.CustomAttributes;//атрибуты класса
+            foreach (var atr in attrib)
+            {
+                Console.WriteLine(atr.ToString());
+                if (atr.ToString().Contains("JsonObjectAttribute"))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

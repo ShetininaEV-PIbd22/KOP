@@ -22,24 +22,16 @@ namespace WindowsFormsApp
         {
             try
             {
+                if (textBoxName.TextLength == 0)
+                {
+                    MessageBox.Show("Введите имя файла!");
+                    return;
+                }
                 string[] num = textBox1.Text.Split(';')
                         .Where(x => !string.IsNullOrWhiteSpace(x)).ToArray(); ;
-                int[][] buf = new int[num.Length][];
-                for (int i = 0; i < num.Length; i++)
-                {
-                    buf[i] = num[i].Split(',')
-                      .Where(x => !string.IsNullOrWhiteSpace(x))
-                      .Select(x => int.Parse(x)).ToArray();
-                    for (int j = 0; j < buf.Length; j++)
-                    {
-                        Console.WriteLine("buf " + i + " " + j + "= " + buf[i][j]);
-                    }
-                }
-
-                componentWord.mas = buf;
-                componentWord.IndexColumns();
+                componentWord.IndexColumns(num);
                 folderBrowserDialog.ShowDialog();
-                componentWord.Save(folderBrowserDialog.SelectedPath + "\\laba.docx", Program.AddData(), Program.GetName<Class>());
+                componentWord.Save(folderBrowserDialog.SelectedPath + "\\"+textBoxName.Text+".docx", Program.AddData(), Program.GetName<MyClass>());
                 MessageBox.Show("Успешно!");
             }
             catch (Exception ex)

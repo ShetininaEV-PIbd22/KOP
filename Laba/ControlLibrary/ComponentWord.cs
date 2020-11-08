@@ -14,7 +14,7 @@ namespace ControlLibrary
 {
     public partial class ComponentWord : Component
     {
-        public int[][] mas { get; set; }
+        Dictionary<int, int> rang= new Dictionary<int, int>();
         
         public ComponentWord()
         {
@@ -27,32 +27,34 @@ namespace ControlLibrary
 
             InitializeComponent();
         }
-        
-        public void IndexColumns()
+
+        private void Check(int[] mas)
         {
-            Console.WriteLine("index");
-            if (mas.Length == 0)
+            for (int i = 1; i < mas.Length; i++)
+            {
+                if (mas[i]- mas[i - 1] > 1)
+                {
+                    throw (new Exception("Неправильные номера столбцов!\nНомера должны идти по порядку. Индекс " + mas[i] 
+                        + " не верен."));
+                }
+                mas[i - 1]--;
+            }
+        }
+        public void IndexColumns(string [] buf)
+        {
+            for (int i = 0; i < buf.Length; i++)
+            {
+                int [] mas=buf[i].Split(',')
+                  .Where(x => !string.IsNullOrWhiteSpace(x))
+                  .Select(x => int.Parse(x)).ToArray();
+                Array.Sort(mas);
+                Check(mas);
+                rang.Add(mas[0], mas[mas.Length - 1]);
+            }
+            
+            if (rang.Count == 0)
             {
                 throw (new Exception("Необходимы номера колонок для объединения")); 
-            }
-            for (int i = 0; i < mas.Length; i++)
-            {
-                Console.WriteLine("sort");
-                Array.Sort(mas[i]);
-                
-                for (int j = 1; j < mas[i].Length; j++)
-               {
-                    Console.WriteLine("srav");
-                    if (mas[i][j] - mas[i][j - 1] > 1)
-                    {
-                        throw (new Exception("Неправильные номера столбцов!\nНомера должны идти по порядку. Индекс " + mas[i][j] + " не верен."));
-                    }
-               }
-               for (int k = 0; k < mas[i].Length; k++)
-               {
-                    mas[i][k] = mas[i][k] - 1;
-                    Console.WriteLine("mas [" + i + "][" + k + "]= " + mas[i][k]);
-               }
             }
         }
         
@@ -160,25 +162,20 @@ namespace ControlLibrary
         
         private void MergeCells(Table table)
         {
-            int rows = mas.GetUpperBound(0) + 1;
-            for (int i = 0; i < rows; i++)
+            for (int i = 0; i < rang.Count; i++)
             {
-                Console.WriteLine(mas[i][0]);
-                table.ElementAt(1).ElementAt(mas[i][0]).Append(FirstCells());
-                for (int j = 1; j < mas[i].Length; j++)
+                int start = rang.ElementAt(i).Key;
+                int last = rang.ElementAt(i).Value;
+                for (int j = start; j < last-1; j++)
                 {
-                    table.ElementAt(1).ElementAt(mas[i][j]).Append(SecondCells());
+                    table.ElementAt(1).ElementAt(j).Append(FirstCells());
+                    table.ElementAt(1).ElementAt(j+1).Append(SecondCells());
                 }
             }
         }
         
         public void Save<T>(string fileName, List<T> list, List<string> names)
         {
-            if (File.Exists(fileName) == true)
-            {
-                File.Delete(fileName);
-            }
-            
             using (WordprocessingDocument wordDocument = WordprocessingDocument.Create
                 (fileName, WordprocessingDocumentType.Document))
             {

@@ -34,6 +34,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.componentStore = new ControlLibrary.ComponentStore(this.components);
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // buttonSave
@@ -64,6 +65,10 @@
             this.textBox1.Size = new System.Drawing.Size(686, 268);
             this.textBox1.TabIndex = 2;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog";
+            // 
             // FormStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -86,5 +91,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private ControlLibrary.ComponentStore componentStore;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

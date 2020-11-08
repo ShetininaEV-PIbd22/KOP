@@ -123,8 +123,7 @@
             // componentExcel
             // 
             this.componentExcel.index = 0;
-            this.componentExcel.mas = null;
-            this.componentExcel.name = null;
+            this.componentExcel.filePath = null;
             // 
             // FormExcel
             // 
