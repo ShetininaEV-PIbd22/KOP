@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace ControlLibrary
@@ -53,11 +54,26 @@ namespace ControlLibrary
         }
         
         // Заполнение списка значениями из справочника
-        public void LoadList(List<string> students)
+        public void LoadList<T>(List<T> list)
         {
-            for (int i=0; i<students.Count; i++)
+            listBox.Items.Clear();
+            /*
+            var prop = typeof(T).GetProperties();
+            Console.WriteLine(prop.Length);
+            for (int i = 0; i < list.Count; i++)
             {
-                listBox.Items.Add(students[i].ToString());
+                string data = "";
+                for (int j = 0; j < prop.Length; j++)
+                {
+                    data += prop[j].GetValue(list[i]) + "; ";
+                }
+                data += "\n";
+                listBox.Items.Add(data);
+            }
+            */
+            for (int i = 0; i < list.Count; i++)
+            {
+                listBox.Items.Add(list[i]);
             }
         }
     }

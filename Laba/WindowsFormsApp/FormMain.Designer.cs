@@ -28,98 +28,123 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonControlListBox = new System.Windows.Forms.Button();
-            this.buttonControlTextBox = new System.Windows.Forms.Button();
-            this.buttonControlDataGridView = new System.Windows.Forms.Button();
-            this.buttonFormStore = new System.Windows.Forms.Button();
-            this.buttonFormWord = new System.Windows.Forms.Button();
-            this.buttonFormExcel = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.направленияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.добавитьНаправлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.изменитьНToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокСтудентовНаЭтомНаправленииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьДанныеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.controlListBox = new ControlLibrary.ControlListBox();
+            this.componentStore = new ControlLibrary.Components.ComponentStore(this.components);
+            this.componentPDF = new ControlLibrary.Components.ComponentPDF(this.components);
+            this.componentPdfReport = new ControlLibrary.Components.ComponentPdfReport(this.components);
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonControlListBox
+            // menuStrip1
             // 
-            this.buttonControlListBox.Location = new System.Drawing.Point(22, 22);
-            this.buttonControlListBox.Name = "buttonControlListBox";
-            this.buttonControlListBox.Size = new System.Drawing.Size(117, 24);
-            this.buttonControlListBox.TabIndex = 0;
-            this.buttonControlListBox.Text = "ControlListBox";
-            this.buttonControlListBox.UseVisualStyleBackColor = true;
-            this.buttonControlListBox.Click += new System.EventHandler(this.buttonControlListBox_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.направленияToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(677, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // buttonControlTextBox
+            // направленияToolStripMenuItem
             // 
-            this.buttonControlTextBox.Location = new System.Drawing.Point(22, 66);
-            this.buttonControlTextBox.Name = "buttonControlTextBox";
-            this.buttonControlTextBox.Size = new System.Drawing.Size(117, 24);
-            this.buttonControlTextBox.TabIndex = 1;
-            this.buttonControlTextBox.Text = "ControlTextBox";
-            this.buttonControlTextBox.UseVisualStyleBackColor = true;
-            this.buttonControlTextBox.Click += new System.EventHandler(this.buttonControlTextBox_Click);
+            this.направленияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьНаправлениеToolStripMenuItem,
+            this.изменитьНToolStripMenuItem,
+            this.списокСтудентовНаЭтомНаправленииToolStripMenuItem,
+            this.сохранитьДанныеToolStripMenuItem1});
+            this.направленияToolStripMenuItem.Name = "направленияToolStripMenuItem";
+            this.направленияToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.направленияToolStripMenuItem.Text = "Направления";
             // 
-            // buttonControlDataGridView
+            // добавитьНаправлениеToolStripMenuItem
             // 
-            this.buttonControlDataGridView.Location = new System.Drawing.Point(22, 113);
-            this.buttonControlDataGridView.Name = "buttonControlDataGridView";
-            this.buttonControlDataGridView.Size = new System.Drawing.Size(117, 23);
-            this.buttonControlDataGridView.TabIndex = 2;
-            this.buttonControlDataGridView.Text = "ControlDataGridView";
-            this.buttonControlDataGridView.UseVisualStyleBackColor = true;
-            this.buttonControlDataGridView.Click += new System.EventHandler(this.buttonControlDataGridView_Click);
+            this.добавитьНаправлениеToolStripMenuItem.Name = "добавитьНаправлениеToolStripMenuItem";
+            this.добавитьНаправлениеToolStripMenuItem.Size = new System.Drawing.Size(294, 22);
+            this.добавитьНаправлениеToolStripMenuItem.Text = "Добавить направление";
+            this.добавитьНаправлениеToolStripMenuItem.Click += new System.EventHandler(this.добавитьНаправлениеToolStripMenuItem_Click);
             // 
-            // buttonFormStore
+            // изменитьНToolStripMenuItem
             // 
-            this.buttonFormStore.Location = new System.Drawing.Point(205, 22);
-            this.buttonFormStore.Name = "buttonFormStore";
-            this.buttonFormStore.Size = new System.Drawing.Size(103, 23);
-            this.buttonFormStore.TabIndex = 3;
-            this.buttonFormStore.Text = "FormStore";
-            this.buttonFormStore.UseVisualStyleBackColor = true;
-            this.buttonFormStore.Click += new System.EventHandler(this.buttonFormStore_Click);
+            this.изменитьНToolStripMenuItem.Name = "изменитьНToolStripMenuItem";
+            this.изменитьНToolStripMenuItem.Size = new System.Drawing.Size(294, 22);
+            this.изменитьНToolStripMenuItem.Text = "Изменить название направления";
+            this.изменитьНToolStripMenuItem.Click += new System.EventHandler(this.изменитьНToolStripMenuItem_Click);
             // 
-            // buttonFormWord
+            // списокСтудентовНаЭтомНаправленииToolStripMenuItem
             // 
-            this.buttonFormWord.Location = new System.Drawing.Point(205, 66);
-            this.buttonFormWord.Name = "buttonFormWord";
-            this.buttonFormWord.Size = new System.Drawing.Size(103, 23);
-            this.buttonFormWord.TabIndex = 4;
-            this.buttonFormWord.Text = "FormWord";
-            this.buttonFormWord.UseVisualStyleBackColor = true;
-            this.buttonFormWord.Click += new System.EventHandler(this.buttonFormWord_Click);
+            this.списокСтудентовНаЭтомНаправленииToolStripMenuItem.Name = "списокСтудентовНаЭтомНаправленииToolStripMenuItem";
+            this.списокСтудентовНаЭтомНаправленииToolStripMenuItem.Size = new System.Drawing.Size(294, 22);
+            this.списокСтудентовНаЭтомНаправленииToolStripMenuItem.Text = "Список студентов на этом направлении";
+            this.списокСтудентовНаЭтомНаправленииToolStripMenuItem.Click += new System.EventHandler(this.списокСтудентовНаЭтомНаправленииToolStripMenuItem_Click);
             // 
-            // buttonFormExcel
+            // сохранитьДанныеToolStripMenuItem1
             // 
-            this.buttonFormExcel.Location = new System.Drawing.Point(205, 112);
-            this.buttonFormExcel.Name = "buttonFormExcel";
-            this.buttonFormExcel.Size = new System.Drawing.Size(103, 23);
-            this.buttonFormExcel.TabIndex = 5;
-            this.buttonFormExcel.Text = "FormExcel";
-            this.buttonFormExcel.UseVisualStyleBackColor = true;
-            this.buttonFormExcel.Click += new System.EventHandler(this.buttonFormExcel_Click);
+            this.сохранитьДанныеToolStripMenuItem1.Name = "сохранитьДанныеToolStripMenuItem1";
+            this.сохранитьДанныеToolStripMenuItem1.Size = new System.Drawing.Size(294, 22);
+            this.сохранитьДанныеToolStripMenuItem1.Text = "Сохранить данные";
+            this.сохранитьДанныеToolStripMenuItem1.Click += new System.EventHandler(this.сохранитьДанныеToolStripMenuItem1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(234, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(208, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Список всех направлений:";
+            // 
+            // controlListBox
+            // 
+            this.controlListBox.Location = new System.Drawing.Point(5, 54);
+            this.controlListBox.Name = "controlListBox";
+            this.controlListBox.SelectedIndex = -1;
+            this.controlListBox.SelectedText = "";
+            this.controlListBox.Size = new System.Drawing.Size(660, 335);
+            this.controlListBox.TabIndex = 1;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 188);
-            this.Controls.Add(this.buttonFormExcel);
-            this.Controls.Add(this.buttonFormWord);
-            this.Controls.Add(this.buttonFormStore);
-            this.Controls.Add(this.buttonControlDataGridView);
-            this.Controls.Add(this.buttonControlListBox);
-            this.Controls.Add(this.buttonControlTextBox);
+            this.ClientSize = new System.Drawing.Size(677, 420);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.controlListBox);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.Text = "FormMain1";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button buttonControlListBox;
-        private System.Windows.Forms.Button buttonControlTextBox;
-        private System.Windows.Forms.Button buttonControlDataGridView;
-        private System.Windows.Forms.Button buttonFormStore;
-        private System.Windows.Forms.Button buttonFormWord;
-        private System.Windows.Forms.Button buttonFormExcel;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem направленияToolStripMenuItem;
+        private ControlLibrary.ControlListBox controlListBox;
+        private System.Windows.Forms.ToolStripMenuItem добавитьНаправлениеToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem изменитьНToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem списокСтудентовНаЭтомНаправленииToolStripMenuItem;
+        private ControlLibrary.Components.ComponentStore componentStore;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьДанныеToolStripMenuItem1;
+        private ControlLibrary.Components.ComponentPDF componentPDF;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private ControlLibrary.Components.ComponentPdfReport componentPdfReport;
     }
 }
